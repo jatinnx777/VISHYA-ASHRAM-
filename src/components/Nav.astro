@@ -17,15 +17,14 @@ const waNumber = site.whatsapp.replace(/[^0-9]/g, '');
         ))}
       </nav>
 
-      <div class="flex items-center gap-2.5">
-        <a href={`tel:${site.phone}`} class="grid place-items-center w-10 h-10 rounded-full bg-green text-white hover:bg-green-deep transition-colors" aria-label="Call us">
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <a href={`tel:${site.phone}`} class="grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-green text-white hover:bg-green-deep transition-colors" aria-label="Call us">
           <Icon name="phone" class="w-5 h-5" />
         </a>
-        <a href={`https://wa.me/${waNumber}`} class="grid place-items-center w-10 h-10 rounded-full text-white transition-transform hover:scale-105" style="background:#25d366;" aria-label="WhatsApp">
+        <a href={`https://wa.me/${waNumber}`} class="grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-full text-white transition-transform hover:scale-105" style="background:#25d366;" aria-label="WhatsApp">
           <Icon name="wa" class="w-5 h-5" />
         </a>
-        <a href="#admission" class="btn btn-green hidden sm:inline-flex" style="padding:0.6rem 1.2rem;font-size:0.85rem;">Enquire</a>
-        <button id="nav-toggle" class="lg:hidden nav-burger grid place-items-center w-10 h-10 rounded-full transition-colors" aria-label="Menu" aria-expanded="false">
+        <button id="nav-toggle" class="lg:hidden nav-burger grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-full transition-colors" aria-label="Menu" aria-expanded="false">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
