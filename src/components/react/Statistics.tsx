@@ -28,7 +28,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
     io.observe(el);
     return () => io.disconnect();
   }, [target]);
-  return <div ref={ref} className="font-display font-extrabold text-5xl md:text-6xl">{n.toLocaleString('en-IN')}<span className="text-gold">{suffix}</span></div>;
+  return <div ref={ref} className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl">{n.toLocaleString('en-IN')}<span className="text-gold">{suffix}</span></div>;
 }
 
 export default function Statistics() {

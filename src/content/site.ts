@@ -7,23 +7,26 @@
 export const site = {
   name: 'Vidya Ashram Classes',
   short: 'Vidya Ashram',
-  tagline: 'A new ray of hope for sound education in Hajipur.',
+  tagline: 'विश्वास से सफलता तक',
+  taglineEn: 'From belief to success',
   location: 'Hajipur',
+  area: 'Bagmali',
   district: 'Vaishali',
-  phone: '+91 90000 00000',
-  whatsapp: '+91 90000 00000',
-  email: 'admissions@vidyaashramclasses.com',
-  address: 'Vidya Ashram Classes, Hajipur, Vaishali, Bihar. Add the full address in Admin, Homepage.',
+  phone: '+91 73527 76759',
+  phoneAlt: '+91 85408 84626',
+  whatsapp: '+91 85408 84626',
+  email: 'vidyaashramclasses@gmail.com',
+  address: '1st Centre: Vidya Ashram Classes, Near Durga Mandir, Lalganj Road, Bagmali, Hajipur.  2nd Centre: Vidya Ashram School, Geeta Enclave, Bagmali, Hajipur.',
   mapEmbed: '',
   socials: { instagram: '#', youtube: '#', facebook: '#' },
 };
 
 export const hero = {
-  eyebrow: 'Hajipur  ·  Vaishali  ·  JEE  ·  NEET  ·  Foundation',
-  hero_line1: 'The Leader in JEE, NEET',
-  hero_line2: '& Foundation Coaching',
-  hero_line3: 'in Hajipur',
-  hero_sub: 'Sound, balanced education for the students of Hajipur and Vaishali. Experienced faculty, small batches and regular tests, led by NIT graduate Mr. Gaurav Roy.',
+  eyebrow: 'Bagmali, Hajipur  ·  School & Classes',
+  hero_line1: 'Where unique talent',
+  hero_line2: 'meets the habit of',
+  hero_line3: 'winning',
+  hero_sub: 'Vidya Ashram, Bagmali (Hajipur) ignites the talent of every child from an early stage. Taught by a team of IITians, NITians, Doctors and M.Sc holders, across School and Classes.',
   primary_cta: 'Enquire Now',
   secondary_cta: 'Get More Information',
   hero_photo: '',
@@ -46,10 +49,9 @@ export const stats = [
 
 export type CourseCategory = 'Engineering' | 'Medical' | 'Foundation';
 export const courses = [
-  { id: 'ascend', name: 'Ascend', category: 'Engineering', description: '2 year integrated classroom program for JEE Main and Advanced, for students moving to Class 11.', tag1: 'Engineering (11th)', tag2: 'Class 11th', tag3: '18 to 24 Months', photo: '' },
-  { id: 'sprint', name: 'Sprint', category: 'Engineering', description: '1 year focused program for JEE Main and Advanced, for students moving to Class 12.', tag1: 'Engineering (12th)', tag2: 'Class 12th', tag3: '12 to 15 Months', photo: '' },
-  { id: 'pulse', name: 'Pulse', category: 'Medical', description: '2 year and 1 year tracks for NEET UG, with daily practice and full length testing.', tag1: 'Medical (NEET)', tag2: 'Class 11th & 12th', tag3: '12 to 24 Months', photo: '' },
-  { id: 'aarambh', name: 'Aarambh', category: 'Foundation', description: 'Foundation program for Class 9 and 10 that builds Olympiad grade reasoning and character early.', tag1: 'Foundation', tag2: 'Class 9th & 10th', tag3: '12 Months', photo: '' },
+  { id: 'ekalavya', name: 'EKALAVYA', category: 'Foundation', description: "Starting school is one of the most important times in a child's life. Ekalavya makes it happy and exciting, building strong foundations and all round development for young children from Class 1 to 5.", tag1: 'Foundation', tag2: 'Class I to V', tag3: 'Day Boarding', photo: '' },
+  { id: 'drona', name: 'DRONA', category: 'Foundation', description: 'A pre-foundation residential schooling programme for students of Class 6, 7, 8, 9 and 10 that builds up concepts for competitive exams, along with rich extra curricular activities.', tag1: 'Pre-Foundation', tag2: 'Class VI to X', tag3: 'Residential', photo: '' },
+  { id: 'tapasya', name: 'TAPASYA', category: 'Engineering', description: 'An intensive classroom programme for Class 11 and 12 towards JEE (Main + Advanced) and NEET, for engineering and medical aspirants, with special focus on Board results.', tag1: 'JEE + NEET', tag2: 'Class XI & XII', tag3: 'Board Focus', photo: '' },
 ];
 
 export const announcements = [
@@ -94,12 +96,12 @@ export const founder = {
 };
 
 export const whyChooseUs = [
-  { title: 'Experienced Faculty', body: 'Senior subject specialists led by an NIT graduate, teaching in Hajipur with genuine care.', icon: 'compass' },
-  { title: 'Small Batch Size', body: 'Deliberately limited seats so every student is seen, heard and mentored.', icon: 'users' },
-  { title: 'Regular Tests', body: 'Weekly tests under real exam conditions, so there are no surprises on the day.', icon: 'test' },
-  { title: 'Doubt Sessions', body: 'Dedicated daily doubt clearing so nothing is ever left unresolved.', icon: 'chat' },
-  { title: 'Character & Culture', body: 'We build strong minds and strong character, not just strong scorecards.', icon: 'book' },
-  { title: 'Personal Guidance', body: 'A mentor who tracks each student and speaks regularly with parents.', icon: 'star' },
+  { title: 'Expert Faculty', body: 'A team of IITians, NITians, Doctors and M.Sc holders teaching every subject.', icon: 'compass' },
+  { title: 'Smart AC Classrooms', body: 'Fully air conditioned rooms with a smart and animated classroom programme.', icon: 'test' },
+  { title: 'Day Boarding & Hostel', body: 'Day boarding system with separate, well run hostels for boys and girls.', icon: 'users' },
+  { title: 'Science & Maths Labs', body: 'Well equipped Science and Mathematics laboratories for hands on learning.', icon: 'book' },
+  { title: 'Sports & Transport', body: 'Games and sports facilities for all round growth, plus a transport facility.', icon: 'star' },
+  { title: 'Regular Tests', body: 'Regular tests and extra curricular activities that build a habit of winning.', icon: 'chat' },
 ];
 
 export const testimonials = [
@@ -119,12 +121,12 @@ export const galleryTiles = [
 ];
 
 export const faqs = [
-  { q: 'Where is Vidya Ashram Classes located?', a: 'We are located in Hajipur, in the Vaishali district of Bihar. The address and map are in the Contact section, and you are always welcome to visit.' },
-  { q: 'Who runs Vidya Ashram Classes?', a: 'It is led by Mr. Gaurav Roy, an NIT Calicut graduate and IIT JEE qualifier from Vaishali, along with a team of senior teachers.' },
-  { q: 'Which courses do you offer?', a: 'JEE (Main and Advanced), NEET UG, Foundation for Class 9 and 10, and Board classes for Class 11 and 12.' },
-  { q: 'How large are the batches?', a: 'Batches are deliberately small so every student gets personal attention and mentoring.' },
+  { q: 'Where is Vidya Ashram located?', a: 'We have two centres in Bagmali, Hajipur (Vaishali). Vidya Ashram Classes near Durga Mandir, Lalganj Road, and Vidya Ashram School at Geeta Enclave. You are always welcome to visit.' },
+  { q: 'What programmes do you offer?', a: 'Ekalavya for Class 1 to 5, Drona pre-foundation for Class 6 to 10, and Tapasya for Class 11 and 12 towards JEE, NEET and Boards.' },
+  { q: 'Who teaches at Vidya Ashram?', a: 'A team of IITians, NITians, Doctors and M.Sc holders, led by Mr. Gaurav Roy, an NIT Calicut graduate and IIT JEE qualifier from Vaishali.' },
+  { q: 'Do you provide hostel and transport?', a: 'Yes. We offer a day boarding system, separate hostels for boys and girls, and a transport facility.' },
   { q: 'Can I attend a demo class before enrolling?', a: 'Yes. Book a free demo class through the enquiry form and our team will schedule it for you.' },
-  { q: 'Is there a scholarship available?', a: 'We run a scholarship test offering up to 100 percent fee waiver for meritorious students. Watch the announcements for dates.' },
+  { q: 'Which classes have admission open?', a: 'Admission is open for Class 1 to 12. Vidya Ashram School for Class 1 to 11 and Vidya Ashram Classes for Class 6 to 12 (JEE, NEET and Boards).' },
 ];
 
 export const navLinks = [

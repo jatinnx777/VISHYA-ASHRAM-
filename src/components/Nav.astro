@@ -1,18 +1,14 @@
 ---
 import { site, navLinks } from '../content/site';
 import Icon from './Icon.astro';
+import BrandLogo from './react/BrandLogo.tsx';
 const waNumber = site.whatsapp.replace(/[^0-9]/g, '');
 ---
 <header id="nav" class="nav fixed top-0 inset-x-0 z-50 transition-all duration-400">
   <div class="container-x">
     <div class="flex items-center justify-between h-[72px]">
       <!-- Wordmark -->
-      <a href="/" class="flex items-center gap-2.5 shrink-0">
-        <span class="grid place-items-center w-9 h-9 rounded-xl bg-green text-white shrink-0">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4"/></svg>
-        </span>
-        <span class="nav-word font-display font-extrabold text-lg tracking-tight leading-none">VIDYA ASHRAM</span>
-      </a>
+      <BrandLogo client:load variant="nav" />
 
       <!-- Links -->
       <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">

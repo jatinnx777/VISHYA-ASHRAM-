@@ -1,6 +1,7 @@
 ---
 import { site, navLinks, courses } from '../content/site';
 import FooterContact from './react/FooterContact.tsx';
+import BrandLogo from './react/BrandLogo.tsx';
 const year = new Date().getFullYear();
 ---
 <footer class="relative text-white overflow-hidden" style="background:linear-gradient(160deg,#0c6b34,#063d1e);">
@@ -16,13 +17,8 @@ const year = new Date().getFullYear();
 
     <div class="grid gap-10 md:grid-cols-12 pt-12">
       <div class="md:col-span-5">
-        <div class="flex items-center gap-2.5">
-          <span class="grid place-items-center w-10 h-10 rounded-xl bg-white/15">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4"/></svg>
-          </span>
-          <span class="font-display font-extrabold text-xl">{site.name}</span>
-        </div>
-        <p class="mt-5 max-w-sm text-white/70 leading-relaxed">{site.tagline} Premium coaching for Class 9 to 12 in {site.location}.</p>
+        <BrandLogo client:visible variant="footer" />
+        <p class="mt-5 max-w-sm text-white/70 leading-relaxed">{site.taglineEn}. School and Classes for Class 1 to 12 in Bagmali, Hajipur.</p>
         <div class="mt-6 flex gap-3">
           {Object.entries(site.socials).map(([k, v]) => (
             <a href={v} aria-label={k} class="grid place-items-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors capitalize text-sm font-semibold">{k[0].toUpperCase()}</a>

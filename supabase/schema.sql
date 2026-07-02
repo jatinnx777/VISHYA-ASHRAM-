@@ -21,6 +21,7 @@ drop table if exists admissions cascade;
 -- ── Homepage / hero / featured banner / contact (singleton) ──
 create table if not exists homepage (
   id int primary key default 1,
+  brand_logo text, tagline text,
   hero_line1 text, hero_line2 text, hero_line3 text, hero_sub text,
   hero_photo text, primary_cta text, secondary_cta text,
   featured_title text, featured_badge text, featured_headline text,

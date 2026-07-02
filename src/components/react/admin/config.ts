@@ -102,6 +102,8 @@ export const panels: Panel[] = [
 
 // Homepage singleton fields (hero, featured banner, contact).
 export const homepageFields: Field[] = [
+  { name: 'brand_logo', label: 'Brand logo (shown in header, footer, login)', type: 'image' },
+  { name: 'tagline', label: 'Tagline / motto', type: 'text' },
   { name: 'hero_photo', label: 'Hero photo (students)', type: 'image' },
   { name: 'hero_line1', label: 'Hero line 1', type: 'text' },
   { name: 'hero_line2', label: 'Hero line 2', type: 'text' },

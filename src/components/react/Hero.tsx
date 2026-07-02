@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="arc" />
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/10 to-transparent pointer-events-none" />
       <div className="container-x relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 items-center pt-32 lg:pt-36 pb-40 lg:pb-48">
+        <div className="grid lg:grid-cols-12 gap-10 items-center pt-28 sm:pt-32 lg:pt-36 pb-28 sm:pb-36 lg:pb-48">
           <div className="lg:col-span-7">
             <p className="eyebrow text-white/80">{hero.eyebrow}</p>
             <h1 className="font-display d-hero mt-5">
