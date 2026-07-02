@@ -1,0 +1,7 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdminApp from '../../components/react/admin/AdminApp.tsx';
+---
+<Base title="Admin | Vidya Ashram Classes" description="Content management for Vidya Ashram Classes." noindex={true}>
+  <AdminApp client:only="react" />
+</Base>

@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/react/Hero.tsx';
+import Courses from '../components/react/Courses.tsx';
+import Announcements from '../components/react/Announcements.tsx';
+import Results from '../components/react/Results.tsx';
+import Faculty from '../components/react/Faculty.tsx';
+import About from '../components/sections/About.astro';
+import WhyChooseUs from '../components/sections/WhyChooseUs.astro';
+import Testimonials from '../components/react/Testimonials.tsx';
+import Statistics from '../components/react/Statistics.tsx';
+import Gallery from '../components/react/Gallery.tsx';
+import Admission from '../components/sections/Admission.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import Contact from '../components/react/Contact.tsx';
+---
+<Base
+  title="Vidya Ashram Classes, Hajipur | JEE, NEET & Foundation Coaching in Vaishali"
+  description="The trusted coaching institute in Hajipur, Vaishali for JEE, NEET, Foundation and Board classes. Led by NIT graduate Mr. Gaurav Roy, with small batches and regular tests."
+>
+  <Nav />
+  <main>
+    <Hero client:load />
+    <Courses client:visible />
+    <Announcements client:visible />
+    <Results client:visible />
+    <Faculty client:visible />
+    <About />
+    <WhyChooseUs />
+    <Testimonials client:visible />
+    <Statistics client:visible />
+    <Gallery client:visible />
+    <Admission />
+    <FAQ />
+    <Contact client:visible />
+  </main>
+  <Footer />
+</Base>

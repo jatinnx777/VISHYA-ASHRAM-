@@ -1,0 +1,78 @@
+---
+import { site, navLinks } from '../content/site';
+import Icon from './Icon.astro';
+const waNumber = site.whatsapp.replace(/[^0-9]/g, '');
+---
+<header id="nav" class="nav fixed top-0 inset-x-0 z-50 transition-all duration-400">
+  <div class="container-x">
+    <div class="flex items-center justify-between h-[72px]">
+      <!-- Wordmark -->
+      <a href="/" class="flex items-center gap-2.5 shrink-0">
+        <span class="grid place-items-center w-9 h-9 rounded-xl bg-green text-white shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4"/></svg>
+        </span>
+        <span class="nav-word font-display font-extrabold text-lg tracking-tight leading-none">VIDYA ASHRAM</span>
+      </a>
+
+      <!-- Links -->
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
+        {navLinks.map((l) => (
+          <a href={l.href} class="nav-link px-3.5 py-2 rounded-full text-sm font-medium transition-colors">{l.label}</a>
+        ))}
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <a href={`tel:${site.phone}`} class="grid place-items-center w-10 h-10 rounded-full bg-green text-white hover:bg-green-deep transition-colors" aria-label="Call us">
+          <Icon name="phone" class="w-5 h-5" />
+        </a>
+        <a href={`https://wa.me/${waNumber}`} class="grid place-items-center w-10 h-10 rounded-full text-white transition-transform hover:scale-105" style="background:#25d366;" aria-label="WhatsApp">
+          <Icon name="wa" class="w-5 h-5" />
+        </a>
+        <a href="#admission" class="btn btn-green hidden sm:inline-flex" style="padding:0.6rem 1.2rem;font-size:0.85rem;">Enquire</a>
+        <button id="nav-toggle" class="lg:hidden nav-burger grid place-items-center w-10 h-10 rounded-full transition-colors" aria-label="Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="lg:hidden hidden container-x pb-4">
+    <nav class="bg-white rounded-2xl p-3 flex flex-col shadow-lg" aria-label="Mobile">
+      {navLinks.map((l) => (
+        <a href={l.href} class="mobile-link px-4 py-3 rounded-xl text-navy font-medium hover:bg-cloud transition-colors">{l.label}</a>
+      ))}
+      <a href="#admission" class="mobile-link btn btn-green mt-2">Enquire Now</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-word { color: #fff; }
+  .nav-link { color: rgba(255, 255, 255, 0.9); }
+  .nav-link:hover { background: rgba(255, 255, 255, 0.15); }
+  .nav-burger { color: #fff; background: rgba(255, 255, 255, 0.15); }
+
+  .nav.scrolled { background: #fff; box-shadow: 0 4px 24px rgba(16, 35, 59, 0.08); }
+  .nav.scrolled .nav-word { color: var(--color-navy); }
+  .nav.scrolled .nav-link { color: var(--color-ink); }
+  .nav.scrolled .nav-link:hover { background: var(--color-cloud); color: var(--color-green-deep); }
+  .nav.scrolled .nav-burger { color: var(--color-navy); background: var(--color-cloud); }
+</style>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('.mobile-link').forEach((a) =>
+    a.addEventListener('click', () => menu?.classList.add('hidden'))
+  );
+</script>

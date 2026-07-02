@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Media from '../../components/react/Media.tsx';
+
+const categories = ['All', 'JEE', 'NEET', 'Foundation', 'Study Tips', 'Announcements'];
+const posts = Array.from({ length: 6 }).map((_, i) => ({
+  title: 'Article title goes here',
+  excerpt: 'A short, elegant excerpt that previews the article. Add real posts from the admin blog editor.',
+  category: categories[(i % 4) + 1],
+  date: 'Add date',
+  path: `blog/post-${i + 1}`,
+}));
+---
+<Base title="Blog | Vidya Ashram Classes, Hajipur" description="Study strategies, exam updates and mentor insights from Vidya Ashram Classes, Hajipur.">
+  <Nav />
+  <main>
+    <section class="relative bg-green text-white overflow-hidden">
+      <div class="arc"></div>
+      <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/10 to-transparent pointer-events-none"></div>
+      <div class="container-x relative z-10 pt-32 pb-28">
+        <p class="eyebrow text-white/80">Journal</p>
+        <h1 class="font-display d-hero mt-5 max-w-3xl">Insights, strategy<br />and exam updates</h1>
+        <p class="mt-5 max-w-xl text-white/85 text-lg">Study tips, exam notifications and mentor notes from the Vidya Ashram team.</p>
+        <div class="mt-8 flex flex-wrap gap-2.5">
+          {categories.map((c, i) => (
+            <span class="chip" style={i === 0 ? 'background:#fff;color:var(--color-green-deep);' : 'background:rgba(255,255,255,0.14);color:#fff;'}>{c}</span>
+          ))}
+        </div>
+      </div>
+      <div class="absolute inset-x-0 bottom-0 h-16 bg-white" style="clip-path: ellipse(80% 100% at 50% 100%);"></div>
+    </section>
+
+    <section class="pb-24 pt-4 bg-white">
+      <div class="container-x">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((p, i) => (
+            <article class="card card-hover overflow-hidden reveal" data-delay={String(i * 60)}>
+              <Media client:visible path={p.path} label="Featured image" alt={p.title} className="aspect-[16/10] w-full" />
+              <div class="p-6">
+                <span class="eyebrow text-green-deep">{p.category} · {p.date}</span>
+                <h3 class="font-display font-bold text-navy text-lg mt-2">{p.title}</h3>
+                <p class="mt-2 text-body text-sm leading-relaxed">{p.excerpt}</p>
+                <span class="mt-4 inline-block text-sm font-semibold text-green-deep">Read article</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

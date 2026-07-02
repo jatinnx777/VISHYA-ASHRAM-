@@ -1,0 +1,13 @@
+# build
+dist/
+.astro/
+node_modules/
+
+# env
+.env
+.env.production
+.env.local
+
+# os / editor
+.DS_Store
+*.log

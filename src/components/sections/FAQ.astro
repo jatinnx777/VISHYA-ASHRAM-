@@ -1,0 +1,31 @@
+---
+import { faqs } from '../../content/site';
+---
+<section id="faq" class="section-pad" style="background:var(--color-cloud);">
+  <div class="container-x">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-4 reveal">
+        <p class="eyebrow text-green-deep">FAQ</p>
+        <h2 class="font-display d-lg text-navy mt-3">Questions parents ask us</h2>
+        <p class="mt-4 text-body">Still unsure about something? Call us or book a demo, we are happy to talk it through.</p>
+        <a href="#admission" class="btn btn-green mt-6">Talk to us</a>
+      </div>
+
+      <div class="lg:col-span-8">
+        <div class="rounded-2xl bg-white overflow-hidden" style="box-shadow:var(--shadow-card);">
+          {faqs.map((f, i) => (
+            <details class="faq group border-b last:border-0 reveal" data-delay={String(i * 40)} style="border-color:var(--color-line);" name="faq">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 hover:bg-cloud transition-colors">
+                <span class="font-display font-semibold text-navy">{f.q}</span>
+                <span class="faq-plus grid place-items-center w-8 h-8 rounded-full text-green shrink-0" style="background:var(--color-green-soft);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-6 -mt-1 text-body leading-relaxed">{f.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+import { site, navLinks, courses } from '../content/site';
+import FooterContact from './react/FooterContact.tsx';
+const year = new Date().getFullYear();
+---
+<footer class="relative text-white overflow-hidden" style="background:linear-gradient(160deg,#0c6b34,#063d1e);">
+  <div class="arc opacity-60"></div>
+  <div class="container-x relative z-10 pt-16 pb-10">
+    <!-- big CTA line -->
+    <div class="pb-12 border-b border-white/15">
+      <h2 class="font-display font-bold" style="font-size:clamp(1.8rem,4vw,3.2rem);line-height:1.05;">
+        Ready to begin? <span class="text-gold">Book a demo class.</span>
+      </h2>
+      <a href="#admission" class="btn btn-white mt-6">Enquire Now</a>
+    </div>
+
+    <div class="grid gap-10 md:grid-cols-12 pt-12">
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-2.5">
+          <span class="grid place-items-center w-10 h-10 rounded-xl bg-white/15">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5z"/><path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4"/></svg>
+          </span>
+          <span class="font-display font-extrabold text-xl">{site.name}</span>
+        </div>
+        <p class="mt-5 max-w-sm text-white/70 leading-relaxed">{site.tagline} Premium coaching for Class 9 to 12 in {site.location}.</p>
+        <div class="mt-6 flex gap-3">
+          {Object.entries(site.socials).map(([k, v]) => (
+            <a href={v} aria-label={k} class="grid place-items-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors capitalize text-sm font-semibold">{k[0].toUpperCase()}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <h3 class="font-semibold text-white mb-4">Explore</h3>
+        <ul class="space-y-3 text-white/70">
+          {navLinks.map((l) => (<li><a href={l.href} class="hover:text-white transition-colors">{l.label}</a></li>))}
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h3 class="font-semibold text-white mb-4">Courses</h3>
+        <ul class="space-y-3 text-white/70">
+          {courses.map((c) => (<li><a href="#courses" class="hover:text-white transition-colors">{c.name}</a></li>))}
+        </ul>
+      </div>
+
+      <div class="md:col-span-3">
+        <h3 class="font-semibold text-white mb-4">Reach us</h3>
+        <FooterContact client:visible />
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/55">
+      <p>© {year} {site.name}. All rights reserved.</p>
+      <p><a href="/admin" class="text-gold hover:underline">Admin</a></p>
+    </div>
+  </div>
+</footer>
