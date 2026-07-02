@@ -18,6 +18,7 @@ const groups: { title: string; items: { key: string; label: string; icon: string
       { key: 'results', label: 'Results', icon: 'star' },
       { key: 'courses', label: 'Courses', icon: 'book' },
       { key: 'faculty', label: 'Faculty', icon: 'users' },
+      { key: 'owners', label: 'Owners / Directors', icon: 'users' },
       { key: 'gallery', label: 'Gallery', icon: 'image' },
       { key: 'testimonials', label: 'Testimonials', icon: 'quote' },
       { key: 'announcements', label: 'Announcements', icon: 'bell' },

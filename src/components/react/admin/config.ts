@@ -56,6 +56,18 @@ export const panels: Panel[] = [
     ],
   },
   {
+    key: 'owners', label: 'Owners / Directors', table: 'owners', folder: 'owners',
+    titleField: 'name', imageField: 'photo', subtitleField: 'role',
+    fields: [
+      { name: 'photo', label: 'Photo', type: 'image' },
+      { name: 'name', label: 'Name', type: 'text' },
+      { name: 'role', label: 'Role (e.g. Director)', type: 'text' },
+      { name: 'bio', label: 'Short bio', type: 'textarea' },
+      { name: 'sort', label: 'Order', type: 'number' },
+      { name: 'published', label: 'Published', type: 'bool' },
+    ],
+  },
+  {
     key: 'gallery', label: 'Gallery', table: 'gallery', folder: 'gallery',
     titleField: 'label', imageField: 'media',
     fields: [

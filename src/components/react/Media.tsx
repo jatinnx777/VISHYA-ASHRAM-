@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { isSupabaseConfigured } from '../../lib/supabase';
-
-const base = import.meta.env.PUBLIC_SUPABASE_URL as string | undefined;
+import { isSupabaseConfigured, SUPABASE_URL } from '../../lib/supabase';
 
 /** Deterministic Supabase Storage public URL for a media path. */
 export function mediaUrl(path?: string): string | undefined {
-  if (!path || !isSupabaseConfigured || !base) return undefined;
-  return `${base}/storage/v1/object/public/media/${path}`;
+  if (!path || !isSupabaseConfigured) return undefined;
+  if (path.startsWith('http')) return path;
+  return `${SUPABASE_URL}/storage/v1/object/public/media/${path}`;
 }
 
 type Props = {

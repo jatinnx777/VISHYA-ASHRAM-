@@ -10,22 +10,43 @@ export interface Props {
 }
 
 const {
-  title = `${site.name} — Premium Coaching for JEE, NEET & Boards`,
-  description = 'A premium coaching institute for Class 9–12. Small batches, senior faculty and a results engine engineered for India’s toughest exams.',
-  image = '/og.png',
+  title = `${site.name}, Hajipur | Best JEE, NEET & Foundation Coaching in Vaishali`,
+  description = 'Vidya Ashram Classes & School in Bagmali, Hajipur (Vaishali, Bihar). Best coaching for JEE, NEET, Foundation and Boards, taught by IITians, NITians and Doctors. Admissions open for Class 1 to 12.',
+  image = '/og.svg',
   noindex = false,
 } = Astro.props;
 
+const keywords = [
+  'best coaching in Hajipur', 'best school in Hajipur', 'JEE coaching Hajipur',
+  'NEET coaching Hajipur', 'best coaching in Vaishali', 'foundation coaching Bagmali',
+  'Vidya Ashram Classes', 'Vidya Ashram School', 'JEE NEET coaching Vaishali Bihar',
+].join(', ');
+
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const origin = (Astro.site ?? new URL(Astro.url.origin)).origin;
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'EducationalOrganization',
+  '@type': ['EducationalOrganization', 'LocalBusiness'],
   name: site.name,
+  alternateName: 'Vidya Ashram School',
   description,
-  url: canonical,
+  url: origin,
+  logo: `${origin}/favicon.svg`,
+  image: `${origin}${image}`,
   email: site.email,
-  telephone: site.phone,
+  telephone: [site.phone, site.phoneAlt],
+  slogan: site.taglineEn,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Near Durga Mandir, Lalganj Road, Bagmali',
+    addressLocality: 'Hajipur',
+    addressRegion: 'Bihar',
+    postalCode: '844101',
+    addressCountry: 'IN',
+  },
+  areaServed: ['Hajipur', 'Vaishali', 'Bihar'],
+  sameAs: Object.values(site.socials).filter((s) => s && s !== '#'),
 };
 ---
 
@@ -39,7 +60,15 @@ const jsonLd = {
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={site.name} />
+    {noindex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow, max-image-preview:large" />}
+
+    <!-- Local / geo signals -->
+    <meta name="geo.region" content="IN-BR" />
+    <meta name="geo.placename" content="Hajipur, Vaishali" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -47,7 +76,10 @@ const jsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -57,7 +89,7 @@ const jsonLd = {
 
     <meta name="theme-color" content="#16964c" />
 
-    <!-- Font: Poppins (bold rounded geometric sans) -->
+    <!-- Font: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -65,11 +97,24 @@ const jsonLd = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
+    <div id="scroll-progress" aria-hidden="true"></div>
     <slot />
     <script>
-      // Global scroll-reveal (progressive enhancement; CSS handles reduced motion).
       import { initReveal } from '../utils/reveal';
       initReveal();
+
+      // Slim scroll-progress bar
+      const bar = document.getElementById('scroll-progress');
+      if (bar) {
+        const onScroll = () => {
+          const h = document.documentElement;
+          const max = h.scrollHeight - h.clientHeight;
+          bar.style.transform = `scaleX(${max > 0 ? h.scrollTop / max : 0})`;
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+      }
     </script>
   </body>
 </html>

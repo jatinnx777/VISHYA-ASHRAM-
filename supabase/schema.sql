@@ -52,6 +52,12 @@ create table if not exists faculty (
   published bool default true, sort int default 0, created_at timestamptz default now()
 );
 
+create table if not exists owners (
+  id uuid primary key default gen_random_uuid(),
+  name text, role text, bio text, photo text,
+  published bool default true, sort int default 0, created_at timestamptz default now()
+);
+
 create table if not exists results (
   id uuid primary key default gen_random_uuid(),
   name text, exam text, category text, rank text, detail text, year text, photo text,
@@ -93,7 +99,7 @@ create table if not exists admissions (
 do $$
 declare t text;
 begin
-  foreach t in array array['homepage','stats','courses','faculty','results','gallery','announcements','testimonials','posts','admissions']
+  foreach t in array array['homepage','stats','courses','faculty','owners','results','gallery','announcements','testimonials','posts','admissions']
   loop
     execute format('alter table %I enable row level security;', t);
   end loop;
@@ -103,7 +109,7 @@ end $$;
 do $$
 declare t text;
 begin
-  foreach t in array array['homepage','stats','courses','faculty','results','gallery','announcements','testimonials','posts']
+  foreach t in array array['homepage','stats','courses','faculty','owners','results','gallery','announcements','testimonials','posts']
   loop
     execute format('drop policy if exists "public_read_%1$s" on %1$I;', t);
     execute format('create policy "public_read_%1$s" on %1$I for select using (true);', t);

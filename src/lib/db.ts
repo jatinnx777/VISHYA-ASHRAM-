@@ -1,4 +1,4 @@
-import { getSupabase, isSupabaseConfigured } from './supabase';
+import { getSupabase, isSupabaseConfigured, SUPABASE_URL } from './supabase';
 
 export { isSupabaseConfigured };
 
@@ -63,9 +63,8 @@ export async function uploadMedia(file: File, folder: string): Promise<string> {
   return path;
 }
 
-const base = import.meta.env.PUBLIC_SUPABASE_URL as string | undefined;
 export function publicUrl(path?: string): string | undefined {
-  if (!path || !isSupabaseConfigured || !base) return undefined;
+  if (!path || !isSupabaseConfigured) return undefined;
   if (path.startsWith('http')) return path;
-  return `${base}/storage/v1/object/public/media/${path}`;
+  return `${SUPABASE_URL}/storage/v1/object/public/media/${path}`;
 }

@@ -95,6 +95,12 @@ export const founder = {
   vision: 'To make the land of Vaishali proud, one well prepared student at a time.',
 };
 
+export const owners = [
+  { id: 'o1', name: 'Mr. Gaurav Roy', role: 'Chief Director & Founder', bio: 'An NIT Calicut graduate and IIT JEE 2012 qualifier from Vaishali. He returned home to build sound, balanced education for the students of Hajipur.', photo: '' },
+  { id: 'o2', name: 'Owner Name', role: 'Director', bio: "Add this director's photo and short bio from Admin, Owners.", photo: '' },
+  { id: 'o3', name: 'Owner Name', role: 'Director', bio: "Add this director's photo and short bio from Admin, Owners.", photo: '' },
+];
+
 export const whyChooseUs = [
   { title: 'Expert Faculty', body: 'A team of IITians, NITians, Doctors and M.Sc holders teaching every subject.', icon: 'compass' },
   { title: 'Smart AC Classrooms', body: 'Fully air conditioned rooms with a smart and animated classroom programme.', icon: 'test' },

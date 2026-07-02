@@ -3,23 +3,27 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 /**
  * Supabase client factory.
  *
- * The public marketing site runs perfectly without Supabase configured — it
- * falls back to the content in `src/content/site.ts`. Supabase is only required
- * for the Admin portal, CMS reads, and media uploads.
+ * The URL and anon key are PUBLIC values (safe in the browser — data is guarded
+ * by row-level security), so we fall back to the project defaults when env vars
+ * are not set. This means the deployed site works without any Vercel config.
+ * The service-role key is never referenced here.
  */
-const url = import.meta.env.PUBLIC_SUPABASE_URL as string | undefined;
-const anonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined;
+const DEFAULT_URL = 'https://gfvtjodzhfuhguumtvkj.supabase.co';
+const DEFAULT_ANON =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmdnRqb2R6aGZ1aGd1dW10dmtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5NzIwODQsImV4cCI6MjA5ODU0ODA4NH0.czSoJ76kh9G4bDvLSpYYd7FDmToJEJ2-z38b90gyHcY';
 
-export const isSupabaseConfigured =
-  !!url && !!anonKey && !url.includes('your-project');
+export const SUPABASE_URL = (import.meta.env.PUBLIC_SUPABASE_URL as string) || DEFAULT_URL;
+const anonKey = (import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string) || DEFAULT_ANON;
+
+export const isSupabaseConfigured = !!SUPABASE_URL && !!anonKey && !SUPABASE_URL.includes('your-project');
 
 let _client: SupabaseClient | null = null;
 
-/** Browser/anon client. Returns null when Supabase isn't configured yet. */
+/** Browser/anon client. */
 export function getSupabase(): SupabaseClient | null {
   if (!isSupabaseConfigured) return null;
   if (!_client) {
-    _client = createClient(url as string, anonKey as string, {
+    _client = createClient(SUPABASE_URL, anonKey, {
       auth: { persistSession: true, autoRefreshToken: true },
     });
   }
