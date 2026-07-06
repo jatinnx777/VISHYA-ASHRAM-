@@ -14,6 +14,7 @@ import Statistics from '../components/react/Statistics.tsx';
 import Gallery from '../components/react/Gallery.tsx';
 import Admission from '../components/sections/Admission.astro';
 import FAQ from '../components/sections/FAQ.astro';
+import Branches from '../components/react/Branches.tsx';
 import Contact from '../components/react/Contact.tsx';
 ---
 <Base
@@ -34,6 +35,7 @@ import Contact from '../components/react/Contact.tsx';
     <Gallery client:visible />
     <Admission />
     <FAQ />
+    <Branches client:visible />
     <Contact client:visible />
   </main>
   <Footer />

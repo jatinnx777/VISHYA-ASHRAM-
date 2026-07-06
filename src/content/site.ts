@@ -101,6 +101,13 @@ export const owners = [
   { id: 'o3', name: 'Owner Name', role: 'Director', bio: "Add this director's photo and short bio from Admin, Owners.", photo: '' },
 ];
 
+export const branches = [
+  { id: 'b1', name: 'Vidya Ashram Classes (Main Centre)', address: 'Near Durga Mandir, Lalganj Road, Bagmali, Hajipur', phone: '+91 73527 76759', map_url: '', photo: '' },
+  { id: 'b2', name: 'Vidya Ashram School', address: 'Geeta Enclave, Bagmali, Hajipur', phone: '+91 85408 84626', map_url: '', photo: '' },
+  { id: 'b3', name: 'Branch Name (3rd)', address: 'Add this branch address from Admin, Branches.', phone: '+91 73527 76759', map_url: '', photo: '' },
+  { id: 'b4', name: 'Branch Name (4th)', address: 'Add this branch address from Admin, Branches.', phone: '+91 73527 76759', map_url: '', photo: '' },
+];
+
 export const whyChooseUs = [
   { title: 'Expert Faculty', body: 'A team of IITians, NITians, Doctors and M.Sc holders teaching every subject.', icon: 'compass' },
   { title: 'Smart AC Classrooms', body: 'Fully air conditioned rooms with a smart and animated classroom programme.', icon: 'test' },
@@ -141,5 +148,6 @@ export const navLinks = [
   { label: 'Faculty', href: '#faculty' },
   { label: 'About', href: '#about' },
   { label: 'Gallery', href: '#gallery' },
+  { label: 'Branches', href: '#branches' },
   { label: 'Contact', href: '#contact' },
 ];

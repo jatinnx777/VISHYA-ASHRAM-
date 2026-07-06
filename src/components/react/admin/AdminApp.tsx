@@ -19,6 +19,7 @@ const groups: { title: string; items: { key: string; label: string; icon: string
       { key: 'courses', label: 'Courses', icon: 'book' },
       { key: 'faculty', label: 'Faculty', icon: 'users' },
       { key: 'owners', label: 'Owners / Directors', icon: 'users' },
+      { key: 'branches', label: 'Branches', icon: 'pin' },
       { key: 'gallery', label: 'Gallery', icon: 'image' },
       { key: 'testimonials', label: 'Testimonials', icon: 'quote' },
       { key: 'announcements', label: 'Announcements', icon: 'bell' },
@@ -39,6 +40,7 @@ const ICONS: Record<string, string> = {
   bell: '<path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 20a2 2 0 0 0 4 0"/>',
   chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
   inbox: '<path d="M3 12h5l2 3h4l2-3h5"/><path d="M5 6h14l2 6v7H3v-7z"/>',
+  pin: '<path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
 };
 
 function NavIcon({ name }: { name: string }) {

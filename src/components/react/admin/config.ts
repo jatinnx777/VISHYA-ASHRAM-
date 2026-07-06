@@ -68,6 +68,19 @@ export const panels: Panel[] = [
     ],
   },
   {
+    key: 'branches', label: 'Branches', table: 'branches', folder: 'branches',
+    titleField: 'name', imageField: 'photo', subtitleField: 'address',
+    fields: [
+      { name: 'photo', label: 'Photo (optional)', type: 'image' },
+      { name: 'name', label: 'Branch name', type: 'text' },
+      { name: 'address', label: 'Address', type: 'textarea' },
+      { name: 'phone', label: 'Phone', type: 'text' },
+      { name: 'map_url', label: 'Google Maps link (for directions)', type: 'text' },
+      { name: 'sort', label: 'Order', type: 'number' },
+      { name: 'published', label: 'Published', type: 'bool' },
+    ],
+  },
+  {
     key: 'gallery', label: 'Gallery', table: 'gallery', folder: 'gallery',
     titleField: 'label', imageField: 'media',
     fields: [
