@@ -29,6 +29,7 @@ create table if not exists homepage (
   highlight2_value text, highlight2_label text,
   founder_photo text, founder_name text, founder_role text, founder_headline text,
   founder_message text, founder_mission text, founder_vision text,
+  branches_title text, branches_sub text,
   phone text, whatsapp text, email text, address text, map_embed text,
   updated_at timestamptz default now(),
   constraint homepage_singleton check (id = 1)

@@ -143,6 +143,8 @@ export const homepageFields: Field[] = [
   { name: 'founder_message', label: "Founder's message (paragraphs separated by a blank line)", type: 'textarea' },
   { name: 'founder_mission', label: 'Mission', type: 'textarea' },
   { name: 'founder_vision', label: 'Vision', type: 'textarea' },
+  { name: 'branches_title', label: 'Branches heading', type: 'text' },
+  { name: 'branches_sub', label: 'Branches subtitle', type: 'textarea' },
   { name: 'phone', label: 'Phone', type: 'text' },
   { name: 'whatsapp', label: 'WhatsApp number', type: 'text' },
   { name: 'email', label: 'Email', type: 'text' },

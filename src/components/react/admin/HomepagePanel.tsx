@@ -7,6 +7,7 @@ const sections = [
   { title: 'Branding', fields: ['brand_logo', 'tagline'] },
   { title: 'Hero section', fields: ['hero_photo', 'hero_line1', 'hero_line2', 'hero_line3', 'hero_sub', 'primary_cta', 'secondary_cta'] },
   { title: 'Story, Mission & Vision', fields: ['founder_headline', 'founder_message', 'founder_mission', 'founder_vision'] },
+  { title: 'Branches section', fields: ['branches_title', 'branches_sub'] },
   { title: 'Contact details', fields: ['phone', 'whatsapp', 'email', 'address', 'map_embed'] },
 ];
 

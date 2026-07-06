@@ -1,6 +1,11 @@
 import { branches as fallback } from '../../content/site';
-import { usePublished } from './useData';
+import { usePublished, useSingleton } from './useData';
 import Media from './Media';
+
+const textFallback = {
+  branches_title: 'Find your nearest Vidya Ashram',
+  branches_sub: 'Multiple centres across Bagmali, Hajipur. Visit the one closest to you.',
+};
 
 function Ico({ d }: { d: string }) {
   return <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>;
@@ -11,14 +16,15 @@ const arrow = 'M5 12h14M13 6l6 6-6 6';
 
 export default function Branches() {
   const list = usePublished('branches', fallback as any);
+  const t = useSingleton('homepage', textFallback as any);
 
   return (
     <section id="branches" className="section-pad" style={{ background: 'var(--color-cloud)' }}>
       <div className="container-x">
         <div className="max-w-2xl">
           <p className="eyebrow text-green-deep">Our Branches</p>
-          <h2 className="font-display d-lg text-navy mt-3">Find your nearest Vidya Ashram</h2>
-          <p className="mt-3 text-body">Multiple centres across Bagmali, Hajipur. Visit the one closest to you.</p>
+          <h2 className="font-display d-lg text-navy mt-3">{t.branches_title}</h2>
+          <p className="mt-3 text-body">{t.branches_sub}</p>
         </div>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
